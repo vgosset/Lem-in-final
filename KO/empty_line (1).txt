@@ -1,0 +1,17 @@
+43
+pl0p 1 5
+8 5 49
+##end
+salut 0 0
+kikoo 2 2
+##start
+ducon 5 5
+fuuuu 7 8
+fuuuu-ducon
+pl0p-
+
+salut-kikoo
+8-salut
+hello 0 5
+pl0p-salut
+fuuuu-8

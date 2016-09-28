@@ -1,0 +1,23 @@
+30
+7 5 5
+##start
+in 0 0
+2 8 9
+1 45 2
+##end
+paricilasortie 7 99
+plop 8 9
+3 2 2
+haha 89 9
+lol 78 5
+paricilasortie-1
+lol-7
+lol-paricilasortie
+haha-lol
+3-haha
+in-plop
+2-in
+3-in
+3-7
+7-1
+1-2
