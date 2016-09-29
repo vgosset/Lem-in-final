@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/18 14:39:31 by vgosset           #+#    #+#             */
-/*   Updated: 2016/09/28 16:24:43 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/09/29 16:24:28 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "lem_in.h"
@@ -159,7 +159,6 @@ int			find_path(char **tab_s, char **tab_e, t_room **room)
 {
 	char **tmp_s;
 	char **tmp_e;
-
 	if (tab_e == NULL || tab_s == NULL)
 		return (0);
 	if (((*room)->occu = set_common(tab_e, tab_s)) != NULL)

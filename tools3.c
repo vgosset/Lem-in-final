@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/19 15:29:50 by vgosset           #+#    #+#             */
-/*   Updated: 2016/09/28 17:40:57 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/09/29 18:05:38 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	add_nei_e(char **tab, t_end **nei_e)
 	tmp = *nei_e;
 	if (!(*nei_e))
 	{
-		new = (t_end*)malloc(sizeof(t_end));
+		new = (t_end*) malloc(sizeof(t_end));
 		new->tab = ft_tabdup(tab);
 		new->next = NULL;
 		new->prev = NULL;
@@ -57,7 +57,7 @@ void	add_nei_e(char **tab, t_end **nei_e)
 			tmp = tmp->next;
 		new = (t_end*) malloc(sizeof(t_end));
 		new->tab = ft_tabdup(tab);
-		new->prev = tmp;
+		new->prev = (*nei_e);
 		new->next = NULL;
 		tmp->next = new;
 	}

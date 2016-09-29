@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/13 13:44:07 by vgosset           #+#    #+#             */
-/*   Updated: 2016/09/28 13:33:30 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/09/29 18:05:30 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,8 @@ int		check_double_e(t_end *nei_e, t_map *map, char *str)
 	i = 0;
 	while (tmp)
 	{
-		while (tmp->tab[i])
+		i = 0;
+		while (tmp->tab[i + 1])
 		{
 			if (ft_strcmp(tmp->tab[i], str) == 0)
 				return (0);
