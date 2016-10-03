@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/28 16:24:53 by vgosset           #+#    #+#             */
-/*   Updated: 2016/09/29 18:05:35 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/10/03 12:52:36 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ char *rec_path(t_room *room)
 
 char	*occu_path(t_room *room)
 {
-	ft_putendl(room->occu);
-	ft_puttab(room->nei_s->tab);
-	ft_puttab(room->nei_e->tab);
 	return (NULL);
 }
 
