@@ -1,16 +1,16 @@
 5
 ##start
 start 5 9
-un 3 0
-quatre 2 9
-onze 2 0
-neuf 4 6
-douze 3 9
+1 3 0
+4 2 9
+11 2 0
+9 4 6
+12 3 9
 ##end
 end 2 5
-start-un
-onze-end
-neuf-quatre
-neuf-onze
-quatre-douze
-un-douze
+start-1
+11-end
+9-4
+9-11
+4-12
+1-12
