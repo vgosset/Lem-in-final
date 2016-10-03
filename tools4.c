@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   tools4.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/24 15:44:59 by vgosset           #+#    #+#             */
-/*   Updated: 2016/10/03 18:22:21 by vgosset          ###   ########.fr       */
+/*   Created: 2016/10/03 16:40:29 by vgosset           #+#    #+#             */
+/*   Updated: 2016/10/03 18:47:24 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-int		main(int argc, char **argv)
+int		check_end(char *str, t_room *room)
 {
-	t_map *map;
-	t_room *room;
-	t_pipe *pipe;
-	char *path;
+	char **tab;
+	char *str2;
+	t_room *tmp;
 
-	pipe = NULL;
-	room = NULL;
-	map = init_map(map);
-	if (argc == 2)
+	tmp = room;
+	str2 = ft_strdup(tmp->map->end->name);
+	tab = NULL;
+	while (tmp->pipe)
 	{
-		if (ft_strcmp(argv[1], "-v") == 0)
-				map->v = 1;
+		if (tab)
+			free_tab(tab);
+		tab = ft_strsplit(tmp->pipe->name, '-');
+		if ((ft_strcmp(str, tab[0]) == 0) && ft_strcmp(str2, tab[1]) == 0)
+			return (1);
+		else if ((ft_strcmp(str2, tab[0]) == 0) && ft_strcmp(str, tab[1]) == 0)
+			return (1);
+		tmp->pipe = tmp->pipe->next;
 	}
-	room = parse(map, pipe);
-	if (direct_path(room, map) == 0)
-	{
-		if (find_s_e_nei(&room) == 0)
-			error(5, map);
-	}
-	path = rec_path(room);
 	return (0);
 }

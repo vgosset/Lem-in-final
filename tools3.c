@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/19 15:29:50 by vgosset           #+#    #+#             */
-/*   Updated: 2016/10/03 12:52:39 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/10/03 18:47:26 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,23 @@ char	**find_nei_e(t_room **room)
 		tmp = tmp->next;
 	}
 	return (tab1);
+}
+
+int		check_nei(char *str, char *str2, t_room *room)
+{
+	char **tab;
+
+	tab = NULL;
+	while (room->pipe)
+	{
+		if (tab)
+			free_tab(tab);
+		tab = ft_strsplit(room->pipe->name, '-');
+		if ((ft_strcmp(str, tab[0]) == 0) && ft_strcmp(str2, tab[1]) == 0)
+			return (1);
+		if ((ft_strcmp(str2, tab[0]) == 0) && ft_strcmp(str, tab[1]) == 0)
+			return (1);
+		room->pipe = room->pipe->next;
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 14:46:17 by vgosset           #+#    #+#             */
-/*   Updated: 2016/10/03 14:23:46 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/10/03 18:47:28 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,7 @@ int		check_double_s(t_start *nei_s, t_map *map, char *str);
 int		check_double_e(t_end *nei_e, t_map *map, char *str);
 //char	*link_path(t_room *room);
 char	*occu_path(t_room *room);
-
+int		check_nei(char *str, char *str2, t_room *room);
+char	*set_path(char *str_f, char *str);
+int		check_end(char *str, t_room *room);
 #endif
