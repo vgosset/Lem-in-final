@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 14:46:17 by vgosset           #+#    #+#             */
-/*   Updated: 2016/10/05 14:08:08 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/10/05 16:11:05 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ t_room	*init_room(char **tab);
 t_pipe	*init_pipe(char *name);
 void	error(int a, t_map *map);
 
+int		good_one(char *str, t_room *room);
 char	**rec_path(t_room *room);
 int		find_path(char **tab_s, char **tab_e, t_room **room);
 int		direct_path(t_room *room, t_map *map);

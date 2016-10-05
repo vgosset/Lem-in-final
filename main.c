@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 15:44:59 by vgosset           #+#    #+#             */
-/*   Updated: 2016/10/05 14:08:12 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/10/05 16:44:50 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int		main(int argc, char **argv)
 			error(5, map);
 	}
 	path = rec_path(room);
+	ft_puttab(path);
 	return (0);
 }
