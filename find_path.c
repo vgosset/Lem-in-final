@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/28 16:24:53 by vgosset           #+#    #+#             */
-/*   Updated: 2016/10/03 18:47:29 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/10/05 14:11:09 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,23 +65,31 @@ static char	*find_path_s(t_room *room)
 	str_f = set_path(str_f, room->map->start->name);
 	return (str_f);
 }
-char		*occu_path(t_room *room)
+char		**occu_path(t_room *room)
 {
-	char *str_f;
 	char *str_e;
 	char *str_s;
+	char **tab_s;
+	char **tab_e;
+	char **tab_f;
 
+	tab_s = NULL;
+	tab_e = NULL;
+	tab_f = NULL;
 	str_e = find_path_e(room);
 	str_s = find_path_s(room);
-//	str_s = ft_swap_str(str_s);
-	str_f = ft_strjoin(str_e, str_s);
-	ft_putendl(str_s);
-	ft_putendl(str_e);
-	ft_putendl(str_f);
-	return (str_f);
+	tab_s = ft_strsplit(str_s, '-');
+	tab_e = ft_strsplit(str_e, '-');
+	tab_s = ft_reverse_tab(tab_s);
+	tab_s = ft_last_tab(tab_s);
+	tab_f = ft_tabjoin(tab_s, tab_e);
+	ft_puttab(tab_s);
+	ft_puttab(tab_e);
+	//ft_puttab(tab_f);
+	return (tab_f);
 }
 
-char *rec_path(t_room *room)
+char **rec_path(t_room *room)
 {
 	if (room->occu)
 		return (occu_path(room));

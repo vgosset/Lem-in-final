@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/06 17:25:27 by vgosset           #+#    #+#             */
-/*   Updated: 2016/10/03 16:56:41 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/10/05 13:40:37 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "lem_in.h"
@@ -111,7 +111,10 @@ void		free_tab(char **tab)
 char *set_path(char *str_f, char *str)
 {
 	if (str_f)
+	{
+		str_f = ft_strjoin(str_f, "-");
 		str_f = ft_strjoin(str_f, str);
+	}
 	else
 		str_f = ft_strdup(str);
 	return (str_f);
