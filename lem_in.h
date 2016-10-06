@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 14:46:17 by vgosset           #+#    #+#             */
-/*   Updated: 2016/10/05 16:11:05 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/10/06 15:21:02 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ typedef struct		s_map
 }					t_map;
 
 int		ft_strchr2(char *s, char c);
-t_room	*parse(t_map *map, t_pipe *pipe);
+t_room	*parse(t_map *map, t_pipe *pipe, t_file *file);
 int		into_struct(char *line);
 void	check_com(char *line, t_map *map);
 int		find_type(char *line);
@@ -82,6 +82,8 @@ t_room	*init_room(char **tab);
 t_pipe	*init_pipe(char *name);
 void	error(int a, t_map *map);
 
+t_file	*add_file(char *line, t_file *file);
+t_file	*init_file(t_file *file);
 int		good_one(char *str, t_room *room);
 char	**rec_path(t_room *room);
 int		find_path(char **tab_s, char **tab_e, t_room **room);
@@ -91,14 +93,15 @@ void	free_tab(char **tab);
 void	add_nei_s(char **tab, t_start **nei_s);
 void	add_nei_e(char **tab, t_end **nei_e);
 
+char	**short_path2(t_room *roon, char *ol);
+char	*short_path(t_room *roon, char *ol);
+void	display(char **path, t_room *room);
 int		find_s_e_nei(t_room **room);
 char **find_nei_s(t_room **room);
 char **find_nei_e(t_room **room);
 int		check_double(int j, t_room **room, char *str);
 int		check_double_s(t_start *nei_s, t_map *map, char *str);
 int		check_double_e(t_end *nei_e, t_map *map, char *str);
-//char	*link_path(t_room *room);
-char	**occu_path(t_room *room);
 int		check_nei(char *str, char *str2, t_room *room);
 char	*set_path(char *str_f, char *str);
 int		check_end(char *str, t_room *room);

@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/10 18:05:46 by vgosset           #+#    #+#             */
-/*   Updated: 2016/09/26 15:55:37 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/10/06 14:21:16 by vgosset          ###   ########.fr       */
 	/*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ static t_room		*check_room(char *line, t_map *map, t_room *room)
 	return (new);
 }
 
-t_room		*parse(t_map *map, t_pipe *pipe)
+t_room		*parse(t_map *map, t_pipe *pipe, t_file *file)
 {
 	char	*line;
 	char **tab;
@@ -153,12 +153,14 @@ t_room		*parse(t_map *map, t_pipe *pipe)
 			if ((check_link2(line, &pipe, room) == 0))
 					break;
 		}
+		file = add_file(line, file);
 		ft_strdel(&line);
 	}
-	if (room && map)
+	if (room && map && file)
 	{
 		room->map = map;
 		room->pipe = pipe;
+		room->file = file;
 	}
 	return (room);
 }

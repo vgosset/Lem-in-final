@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 16:40:29 by vgosset           #+#    #+#             */
-/*   Updated: 2016/10/05 16:48:03 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/10/06 15:21:18 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,47 @@ int		good_one(char *str, t_room *room)
 		i++;
 	}
 	return (0);
+}
+
+char *short_path(t_room *room, char *ol)
+{
+	char *str_f;
+
+	str_f = NULL;
+	if (check_nei(ol, room->map->start->name, room) == 1)
+	{
+		str_f = set_path(str_f, room->map->start->name);
+		str_f = set_path(str_f, ol);
+	}
+	if (check_nei(ol, room->map->end->name, room) == 1)
+		str_f = set_path(str_f, room->map->end->name);
+	return (str_f);
+}
+
+char **short_path2(t_room *room, char *ol)
+{
+	char **tab_f;
+	char *str_f;
+	char **tab;
+
+	tab = NULL;
+	tab_f = NULL;
+	str_f = NULL;
+	tab = ft_strsplit(ol, '-');
+	if (check_nei(tab[0], room->map->start->name, room) == 1)
+	{
+		str_f = set_path(str_f, room->map->start->name);
+		str_f = set_path(str_f, tab[0]);
+		str_f = set_path(str_f, tab[1]);
+		str_f = set_path(str_f, room->map->end->name);
+	}
+	else
+	{
+		str_f = set_path(str_f, room->map->start->name);
+		str_f = set_path(str_f, tab[1]);
+		str_f = set_path(str_f, tab[0]);
+		str_f = set_path(str_f, room->map->end->name);
+	}
+	tab_f = ft_strsplit(str_f, '-');
+	return (tab_f);
 }

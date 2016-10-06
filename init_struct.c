@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 15:21:03 by vgosset           #+#    #+#             */
-/*   Updated: 2016/09/22 16:31:35 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/10/06 14:47:25 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "lem_in.h"
@@ -34,8 +34,8 @@ t_room	*init_room(char **tab)
 	room->next = NULL;
 	room->occu = NULL;
 	room->map = NULL;
-	room->pipe = NULL;
 	room->file = NULL;
+	room->pipe = NULL;
 	room->nei_s = NULL;
 	room->nei_e = NULL;
 	room->x = ft_atoi(tab[1]);
@@ -51,5 +51,37 @@ t_pipe	*init_pipe(char *line)
 	new->name = ft_strdup(line);
 	new->next = NULL;
 	return (new);
+}
+
+t_file	*init_file(t_file *file)
+{
+	file = malloc(sizeof(t_file*));
+	file->line = NULL;
+	file->next = NULL;
+	return (file);
+}
+
+t_file	*add_file(char *line, t_file *file)
+{
+	t_file *new;
+	t_file *tmp;
+
+	tmp = file;
+	if (line == NULL)
+	{
+		file = malloc(sizeof(t_file*));
+		file->line = ft_strdup(line);
+		file->next = NULL;
+	}
+	else
+	{
+		while (tmp->next)
+			tmp = tmp->next;
+		new = malloc(sizeof(t_file*));
+		new->line = ft_strdup(line);
+		new->next = NULL;
+		tmp->next = new;
+	}
+	return (file);
 }
 
