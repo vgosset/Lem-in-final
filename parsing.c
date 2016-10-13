@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/10 18:05:46 by vgosset           #+#    #+#             */
-/*   Updated: 2016/10/06 14:21:16 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/10/13 14:47:24 by vgosset          ###   ########.fr       */
 	/*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,7 @@ static t_room		*check_room(char *line, t_map *map, t_room *room)
 t_room		*parse(t_map *map, t_pipe *pipe, t_file *file)
 {
 	char	*line;
-	char **tab;
 	t_room *tmp;
-	t_pipe *ptr;
 	t_room *room;
 
 	room = NULL;

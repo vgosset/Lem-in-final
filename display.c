@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:21:40 by vgosset           #+#    #+#             */
-/*   Updated: 2016/10/13 13:38:09 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/10/13 14:43:25 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ static void ft_put_colors(int c, int ant, char *room)
 		ft_putchar('L');
 		ft_putnbr(ant);
 		ft_putstr(STOP);
+		ft_putstr(YELLOW);
 		ft_putchar('-');
+		ft_putstr(STOP);
 		ft_putstr(GREEN);
 		ft_putstr(room);
 		ft_putstr(STOP);
@@ -104,10 +106,10 @@ void print_ant_course(char **path, t_room *room)
 {
 	int nbc;
 
+	print_file(room);
 	nbc = 0;
 	if (room->map->p == 1)
 	{
-		ft_putstr("\nPath: ");
 		ft_puttab(path);
 		ft_putchar('\n');
 	}

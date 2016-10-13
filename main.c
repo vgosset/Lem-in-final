@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 15:44:59 by vgosset           #+#    #+#             */
-/*   Updated: 2016/10/13 13:02:51 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/10/13 14:46:59 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int		main(int argc, char **argv)
 	t_file *file;
 	char **path;
 
+	map = NULL;
+	file = NULL;
 	pipe = NULL;
 	room = NULL;
 	map = init_map(map);
