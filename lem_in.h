@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 14:46:17 by vgosset           #+#    #+#             */
-/*   Updated: 2016/10/06 17:29:34 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/10/13 13:02:48 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,13 @@ typedef struct		s_map
 	int				e;
 	int				s;
 	int				v;
+	int				p;
 	int				r;
+	int				n;
+	int				c;
 }					t_map;
 
+void	set_option(char **av, t_map *map);
 int		ft_strchr2(char *s, char c);
 t_room	*parse(t_map *map, t_pipe *pipe, t_file *file);
 int		into_struct(char *line);
@@ -93,9 +97,9 @@ void	free_tab(char **tab);
 void	add_nei_s(char **tab, t_start **nei_s);
 void	add_nei_e(char **tab, t_end **nei_e);
 
+void	print_ant_course(char **path, t_room *room);
 char	**short_path2(t_room *roon, char *ol);
 char	*short_path(t_room *roon, char *ol);
-void	display(char **path, t_room *room);
 int		find_s_e_nei(t_room **room);
 char **find_nei_s(t_room **room);
 char **find_nei_e(t_room **room);

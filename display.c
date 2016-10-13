@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 14:21:40 by vgosset           #+#    #+#             */
-/*   Updated: 2016/10/06 17:29:29 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/10/13 13:06:49 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,82 @@ static void		print_file(t_room *room)
 	ft_putchar('\n');
 }
 
-void	display(char **path, t_room *room)
+static void ft_put_colors(int c, int ant, char *room)
 {
-//	print_file(room);
-	int i;
-	int a;
-	int j;
+	if (c == 1)
+		ft_printf("L%s%d%s-%s%s%s ", RED, ant, STOP, GREEN, room, STOP);
+	else
+		ft_printf("L%d-%s ", ant, room);
+}
 
-	a = room->map->ant;
+static void ft_first_print(char **path, t_room *room, int *nbc)
+{
+	int i;
+	int k;
+	int s;
+
 	i = 1;
-	while (path[i - 1])
+	while (path[i] != NULL)
 	{
-		j = 1;
-		while (j != i)
+		k = 1;
+		s = i;
+		while (k < i && k < room->map->ant)
 		{
-			ft_putchar(' ');
-			ft_putchar('L');
-			ft_putnbr(j);
-			ft_putchar('-');
-			ft_putstr(path[i - j]);
-			j++;
+			ft_put_colors(room->map->c, k, path[s]);
+			s--;
+			k++;
 		}
-	ft_putchar('\n');
-	i++;
+		ft_put_colors(room->map->c, k, path[s]);
+		ft_putchar('\n');
+		(*nbc)++;
+		i++;
 	}
 }
+
+static void ft_last_print(char **path, t_room *room, int *nbc)
+{
+	int k;
+	int p;
+	int s;
+	int j;
+	int l;
+
+	k = 2;
+	p = (room->map->ant - 1);
+	while (k <= room->map->ant)
+	{
+		l = k;
+		j = 1;
+		s = ft_tablen(path) - 1;
+		while (j <= (p - 1) && s > 1)
+		{
+			ft_put_colors(room->map->c, l, path[s--]);
+			l++;
+			j++;
+		}
+		ft_put_colors(room->map->c, l, path[s]);
+		ft_putchar('\n');
+		(*nbc)++;
+		p--;
+		k++;
+	}
+}
+
+void print_ant_course(char **path, t_room *room)
+{
+	int nbc;
+
+	nbc = 0;
+	if (room->map->p == 1)
+	{
+		ft_putstr("\nPath: ");
+		ft_puttab(path);
+		ft_putchar('\n');
+	}
+	ft_putchar('\n');
+	ft_first_print(path, room, &nbc);
+	ft_last_print(path, room, &nbc);
+	if (room->map->n == 1)
+		ft_printf("\nNombre de coups: %d", nbc);
+}
+

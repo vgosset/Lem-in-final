@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 15:44:59 by vgosset           #+#    #+#             */
-/*   Updated: 2016/10/06 17:29:31 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/10/13 13:02:51 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,8 @@ int		main(int argc, char **argv)
 	room = NULL;
 	map = init_map(map);
 	file = init_file(file);
-	if (argc == 2)
-	{
-		if (ft_strcmp(argv[1], "-v") == 0)
-				map->v = 1;
-	}
+	if (argc >= 2)
+		set_option(argv, map);
 	room = parse(map, pipe, file);
 	if (direct_path(room, map) == 0)
 	{
@@ -36,6 +33,6 @@ int		main(int argc, char **argv)
 			error(5, map);
 	}
 	path = rec_path(room);
-	display(path, room);
+	print_ant_course(path, room);
 	return (0);
 }

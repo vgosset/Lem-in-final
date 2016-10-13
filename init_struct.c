@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/22 15:21:03 by vgosset           #+#    #+#             */
-/*   Updated: 2016/10/06 14:47:25 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/10/13 12:48:18 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "lem_in.h"
@@ -22,6 +22,9 @@ t_map	*init_map(t_map *map)
 	map->e = 0;
 	map->s = 0;
 	map->v = 0;
+	map->p = 0;
+	map->c = 0;
+	map->n = 0;
 	return (map);
 }
 

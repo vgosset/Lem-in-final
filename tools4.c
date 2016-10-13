@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 16:40:29 by vgosset           #+#    #+#             */
-/*   Updated: 2016/10/06 17:29:30 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/10/13 12:48:28 by vgosset          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,23 @@ char **short_path2(t_room *room, char *ol)
 	}
 	tab_f = ft_strsplit(str_f, '-');
 	return (tab_f);
+}
+
+void	set_option(char **av, t_map *map)
+{
+	int i;
+
+	i = 0;
+	while (av[i])
+	{
+		if (ft_strcmp(av[i], "-v") == 0)
+			map->v = 1;
+		if (ft_strcmp(av[i], "-p") == 0)
+			map->p = 1;
+		if (ft_strcmp(av[i], "-n") == 0)
+			map->n = 1;
+		if (ft_strcmp(av[i], "-c") == 0)
+			map->c = 1;
+		i++;
+	}
 }
