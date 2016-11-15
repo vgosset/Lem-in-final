@@ -6,7 +6,7 @@
 /*   By: vgosset <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/10 18:05:46 by vgosset           #+#    #+#             */
-/*   Updated: 2016/10/13 14:47:24 by vgosset          ###   ########.fr       */
+/*   Updated: 2016/11/15 14:42:13 by vgosset          ###   ########.fr       */
 	/*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static int		check_ants(char *line, t_map *map)
 {
-	if (ft_atoi(line) == 0)
+	if (ft_atoi_l(line) == 0)
 		return (0);
 	else
 		if (map->ant == 0)
@@ -119,7 +119,7 @@ t_room		*parse(t_map *map, t_pipe *pipe, t_file *file)
 		if (find_type(line) == 1)
 		{
 			if (check_ants(line, map) == 0)
-				break;
+				error(1, map);
 		}
 		else if (find_type(line) == 2)
 		{
